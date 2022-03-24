@@ -21,7 +21,19 @@ pub fn normalize_search_address(value: String) -> String {
 lazy_static! {
     static ref RE_NN: Regex = Regex::new(r"\n\n+").unwrap();
     static ref RE_SPACE: Regex = Regex::new(r"(\n(\s*|\n+)\n+(\s*))|(\n\s*)").unwrap();
+    static ref RE_MULTI_SPACE: Regex = Regex::new(r"(\s\s+)").unwrap();
+    static ref REGIX_REPLACE_SPACE: Regex = Regex::new(r"([\t　])").unwrap();
 
+}
+
+
+pub fn replace_good_space(value: String) -> String {
+    let value = REGIX_REPLACE_SPACE.replace_all(value.as_str(), " ").to_string();
+    RE_MULTI_SPACE.replace_all(value.as_str(), " ").to_string()
+}
+
+pub fn remove_multi_space(value: String) -> String {
+    return RE_MULTI_SPACE.replace_all(value.as_str(), " ").to_string();
 }
 
 pub fn remove_space(value: String) -> String {
