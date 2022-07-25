@@ -3,10 +3,9 @@ name = "uiuifree-normalize"
 version = "0.1.0"
 edition = "2021"
 authors = ["uiuifree"]
-description = ""
+description = "uiuifree text normalize"
 license = "MIT"
 repository="https://github.com/uiuifree/uiuifree-normalize"
-
 
 [dependencies]
 unicode-jp = "0.4"
